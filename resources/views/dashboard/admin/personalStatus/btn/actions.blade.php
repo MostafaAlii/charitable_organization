@@ -10,13 +10,11 @@
                 تعديل
             </span>
         </button>
-        <button type="button" class="modal-effect btn btn-sm btn-success dropdown-item"
-            style="text-align: center !important" data-toggle="modal" data-target="#upload{{$personalStatus->id}}"
-            data-effect="effect-scale">
+        <a href="{{ route('personal_status_cases.images', $personalStatus->id)}}" style="text-align: center !important" target="_blank" class="btn btn-sm btn-success dropdown-item">
             <span class="icon text-wight text-bold">
                 رفع الصور
             </span>
-        </button>
+        </a>
         <button type="button" class="modal-effect btn btn-sm btn-success dropdown-item"
             style="text-align: center !important" data-toggle="modal" data-target="#show{{$personalStatus->id}}"
             data-effect="effect-scale">

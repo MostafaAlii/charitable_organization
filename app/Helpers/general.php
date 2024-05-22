@@ -10,3 +10,9 @@ if (!function_exists('get_user_data')) {
         return null;
     }
 }
+
+    function uploadImage($folder,$image){
+        $image->store('/', $folder);
+        $filename = $image->hashName();
+        return  $filename;
+    }

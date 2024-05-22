@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Dashboard\Admin;
 
 use App\DataTables\PersonalStatusDataTable;
 use App\Http\Controllers\Controller;
-use App\Models\PersonalStatus;
+use App\Models\{PersonalStatus, PersonalImage};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -36,8 +36,7 @@ class PersonalStatusController extends Controller
         return redirect()->back();
     }
 
-    public function destroy(string $id)
-    {
+    public function destroy(string $id) {
         try {
             DB::beginTransaction();
             $slider = PersonalStatus::findOrFail($id);
@@ -53,4 +52,37 @@ class PersonalStatusController extends Controller
         return redirect()->back()->with('success', 'تم الحذف بنجاح');
     }
 
+    public function addImages($personalStatusId) {
+        $personalStatus = PersonalStatus::findOrFail($personalStatusId);
+        $images = PersonalImage::get(['photo']);
+        return view('dashboard.admin.personalStatus.images', ['title' => 'صور الحاله', 'personalStatus' => $personalStatus, 'images' => $images]);
+    }
+
+    public function savePersonalStatusCaseImages(Request $request) {
+        $file = $request->file('dzfile');
+        $filename = uploadImage('personal', $file);
+        return response()->json([
+            'name' => $filename,
+            'original_name' => $file->getClientOriginalName(),
+        ]);
+    }
+
+    public function savePersonalStatusCaseImagesDB(Request $request){
+        try {
+            if ($request->has('document') && count($request->document) > 0) {
+                foreach ($request->document as $image) {
+                    PersonalImage::create([
+                        'personal_statuses_id' => $request->personal_statuses_id,
+                        'photo' => $image,
+                    ]);
+                }
+            }
+            Session::flash('message', 'تم الحفظ بنجاح');
+            Session::flash('alert-class', 'alert-success');
+            return redirect()->back();
+        }catch(\Exception $ex){
+            Session::flash('message', 'حدث خطا حاول مره اخرى');
+            Session::flash('alert-class', 'alert-danger');
+        }
+    }
 }
