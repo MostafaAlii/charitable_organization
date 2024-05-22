@@ -32,22 +32,21 @@ preloader -->
         <!--=================================
  Main content -->
         <!-- main-content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper" style="overflow: hidden; width: auto !important;">
 
-            @yield('page-header')
 
-            @yield('content')
+                @yield('page-header')
 
-            <!--=================================
- wrapper -->
 
-            <!--=================================
-footer -->
+                @yield('content')
 
-            @include('layouts.common.includes.footer')
-        </div><!-- main content wrapper end-->
-    </div>
-    </div>
+
+                @include('layouts.common.includes.footer')
+
+
+
+        </div>
+        <!-- main content wrapper end-->
     </div>
 
     <!--=================================

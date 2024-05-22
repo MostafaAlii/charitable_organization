@@ -10,6 +10,7 @@
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"></script>
 <script src="/vendor/datatables/buttons.server-side.js"></script>
+
 <!-- plugin_path -->
 <!-- chart -->
 <script src="{{ URL::asset('assets/js/chart-init.js') }}"></script>

@@ -6,6 +6,7 @@
 
 <!-- Font -->
 <link href="https://fonts.googleapis.com/css?family=Cairo:300,400&amp;subset=arabic,latin-ext" rel="stylesheet">
+
 <style>
     html,
     body,
@@ -42,3 +43,8 @@
 @else
 <link href="{{ asset('assets/css/rtl.css') }}" rel="stylesheet">
 @endif
+<link rel="stylesheet" type="text/css" href="{{asset('assets/css/vendors/file-uploaders/dropzone.min.css')}}">
+
+
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/file-uploaders/dropzone.css')}}">
+<script src="{{ asset('assets/js/file-uploaders/dropzone.min.js') }}"></script>
