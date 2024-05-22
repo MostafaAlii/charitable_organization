@@ -42,7 +42,7 @@
                     <ul id="admins_managment" class="collapse" data-parent="#sidebarnav">
                         <li><a href="{{--route('agents.index')--}}">المشرفين</a></li>
                         <li><a href="{{--route('companies.index')--}}">الموظفين</a></li>
-                        <li><a href="{{--route('employees.index')--}}">الحالات</a></li>
+                        <li><a href="{{ route('cases.index') }}">الحالات</a></li>
                     </ul>
                 </li>
                 <!-- End Admin Managment Menu-->
