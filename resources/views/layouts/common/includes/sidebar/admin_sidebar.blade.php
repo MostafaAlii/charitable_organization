@@ -20,7 +20,7 @@
                         <div class="clearfix"></div>
                     </a>
                     <ul id="cms_managment" class="collapse" data-parent="#sidebarnav">
-                        <li><a href="{{--route('service.index')--}}">الخدمات المقدمه</a></li>
+                        <li><a href="{{ route('services.index') }}">الخدمات المقدمه</a></li>
                         <li><a href="{{ route('sections.index') }}">الاقسام</a></li>
                     </ul>
                 </li>
