@@ -23,16 +23,22 @@
     .alert {
         font-family: 'Cairo', sans-serif;
     }
+    .custom-bg-success {
+        background-color: #87df9b !important;
+    }
+    .custom-bg-warning {
+        background-color: #e9bb33 !important;
+    }
 </style>
 @yield('css')
 <!--- Style css -->
 @if (App::getLocale() == 'en')
-<link href="{{ URL::asset('assets/css/ltr.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/css/ltr.css') }}" rel="stylesheet">
 <style>
     .scrollbar {
         overflow-x: hidden !important;
     }
 </style>
 @else
-<link href="{{ URL::asset('assets/css/rtl.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/css/rtl.css') }}" rel="stylesheet">
 @endif
